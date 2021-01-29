@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TechnologicalWarehouseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblLogin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="PasswordUser" Type="nvarchar" MaxLength="32" />
+  </EntityType>
+  <EntityType Name="tblRecordProducts">
+    <Key>
+      <PropertyRef Name="ProductCode" />
+    </Key>
+    <Property Name="ProductCode" Type="int" Nullable="false" />
+    <Property Name="NameProduct" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductDescription" Type="nvarchar" MaxLength="100" />
+    <Property Name="ProductBrand" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductModel" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductSerial" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductStatus" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Function Name="ConsultUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="user" Type="nvarchar" Mode="In" />
+    <Parameter Name="password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="DeleteProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductCode" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductCode" Type="int" Mode="In" />
+    <Parameter Name="NameProduct" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProductDescription" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProductBrand" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProductModel" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProductSerial" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProductStatus" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductCode" Type="int" Mode="In" />
+    <Parameter Name="NameProduct" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProductDescription" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProductBrand" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProductModel" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProductSerial" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProductStatus" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="TechnologicalWarehouseModelStoreContainer">
+    <EntitySet Name="tblLogin" EntityType="Self.tblLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblRecordProducts" EntityType="Self.tblRecordProducts" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

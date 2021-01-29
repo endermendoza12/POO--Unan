@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TechnologicalWarehouseModelStoreContainer" CdmEntityContainer="TechnologicalWarehouseEntities1">
+    <EntitySetMapping Name="tblRecordProducts">
+      <EntityTypeMapping TypeName="TechnologicalWarehouseModel.tblRecordProducts">
+        <MappingFragment StoreEntitySet="tblRecordProducts">
+          <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+          <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="ProductBrand" ColumnName="ProductBrand" />
+          <ScalarProperty Name="ProductModel" ColumnName="ProductModel" />
+          <ScalarProperty Name="ProductSerial" ColumnName="ProductSerial" />
+          <ScalarProperty Name="ProductStatus" ColumnName="ProductStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteProduct" FunctionName="TechnologicalWarehouseModel.Store.DeleteProduct" />
+    <FunctionImportMapping FunctionImportName="InsertProduct" FunctionName="TechnologicalWarehouseModel.Store.InsertProduct" />
+    <FunctionImportMapping FunctionImportName="UpdateProduct" FunctionName="TechnologicalWarehouseModel.Store.UpdateProduct" />
+    <FunctionImportMapping FunctionImportName="ConsultUser" FunctionName="TechnologicalWarehouseModel.Store.ConsultUser" />
+    <EntitySetMapping Name="tblLogin">
+      <EntityTypeMapping TypeName="TechnologicalWarehouseModel.tblLogin">
+        <MappingFragment StoreEntitySet="tblLogin">
+          <ScalarProperty Name="PasswordUser" ColumnName="PasswordUser" />
+          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteAll" FunctionName="TechnologicalWarehouseModel.Store.DeleteAll" />
+  </EntityContainerMapping>
+</Mapping>

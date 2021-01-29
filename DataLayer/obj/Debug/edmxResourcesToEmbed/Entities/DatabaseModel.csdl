@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TechnologicalWarehouseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblRecordProducts">
+    <Key>
+      <PropertyRef Name="ProductCode" />
+    </Key>
+    <Property Name="ProductCode" Type="Int32" Nullable="false" />
+    <Property Name="NameProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ProductBrand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductSerial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="TechnologicalWarehouseEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblRecordProducts" EntityType="Self.tblRecordProducts" />
+    <FunctionImport Name="DeleteProduct">
+      <Parameter Name="ProductCode" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="InsertProduct">
+      <Parameter Name="ProductCode" Mode="In" Type="Int32" />
+      <Parameter Name="NameProduct" Mode="In" Type="String" />
+      <Parameter Name="ProductDescription" Mode="In" Type="String" />
+      <Parameter Name="ProductBrand" Mode="In" Type="String" />
+      <Parameter Name="ProductModel" Mode="In" Type="String" />
+      <Parameter Name="ProductSerial" Mode="In" Type="String" />
+      <Parameter Name="ProductStatus" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateProduct">
+      <Parameter Name="ProductCode" Mode="In" Type="Int32" />
+      <Parameter Name="NameProduct" Mode="In" Type="String" />
+      <Parameter Name="ProductDescription" Mode="In" Type="String" />
+      <Parameter Name="ProductBrand" Mode="In" Type="String" />
+      <Parameter Name="ProductModel" Mode="In" Type="String" />
+      <Parameter Name="ProductSerial" Mode="In" Type="String" />
+      <Parameter Name="ProductStatus" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ConsultUser" ReturnType="Collection(String)">
+      <Parameter Name="user" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblLogin" EntityType="TechnologicalWarehouseModel.tblLogin" />
+    <FunctionImport Name="DeleteAll" />
+  </EntityContainer>
+  <EntityType Name="tblLogin">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordUser" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>

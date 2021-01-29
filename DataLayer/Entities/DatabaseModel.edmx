@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TechnologicalWarehouseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblLogin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="PasswordUser" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="tblRecordProducts">
+          <Key>
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="ProductCode" Type="int" Nullable="false" />
+          <Property Name="NameProduct" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductDescription" Type="nvarchar" MaxLength="100" />
+          <Property Name="ProductBrand" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductModel" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductSerial" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductStatus" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Function Name="ConsultUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="user" Type="nvarchar" Mode="In" />
+          <Parameter Name="password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="DeleteAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="DeleteProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductCode" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductCode" Type="int" Mode="In" />
+          <Parameter Name="NameProduct" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProductDescription" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProductBrand" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProductModel" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProductSerial" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProductStatus" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="UpdateProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProductCode" Type="int" Mode="In" />
+          <Parameter Name="NameProduct" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProductDescription" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProductBrand" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProductModel" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProductSerial" Type="nvarchar" Mode="In" />
+          <Parameter Name="ProductStatus" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="TechnologicalWarehouseModelStoreContainer">
+          <EntitySet Name="tblLogin" EntityType="Self.tblLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblRecordProducts" EntityType="Self.tblRecordProducts" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TechnologicalWarehouseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblRecordProducts">
+          <Key>
+            <PropertyRef Name="ProductCode" />
+          </Key>
+          <Property Name="ProductCode" Type="Int32" Nullable="false" />
+          <Property Name="NameProduct" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ProductBrand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductModel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductSerial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="TechnologicalWarehouseEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblRecordProducts" EntityType="Self.tblRecordProducts" />
+          <FunctionImport Name="DeleteProduct">
+          <Parameter Name="ProductCode" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="InsertProduct">
+            <Parameter Name="ProductCode" Mode="In" Type="Int32" />
+            <Parameter Name="NameProduct" Mode="In" Type="String" />
+            <Parameter Name="ProductDescription" Mode="In" Type="String" />
+            <Parameter Name="ProductBrand" Mode="In" Type="String" />
+            <Parameter Name="ProductModel" Mode="In" Type="String" />
+            <Parameter Name="ProductSerial" Mode="In" Type="String" />
+            <Parameter Name="ProductStatus" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateProduct">
+            <Parameter Name="ProductCode" Mode="In" Type="Int32" />
+            <Parameter Name="NameProduct" Mode="In" Type="String" />
+            <Parameter Name="ProductDescription" Mode="In" Type="String" />
+            <Parameter Name="ProductBrand" Mode="In" Type="String" />
+            <Parameter Name="ProductModel" Mode="In" Type="String" />
+            <Parameter Name="ProductSerial" Mode="In" Type="String" />
+            <Parameter Name="ProductStatus" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ConsultUser" ReturnType="Collection(String)">
+            <Parameter Name="user" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="tblLogin" EntityType="TechnologicalWarehouseModel.tblLogin" />
+          <FunctionImport Name="DeleteAll" />
+        </EntityContainer>
+        <EntityType Name="tblLogin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordUser" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TechnologicalWarehouseModelStoreContainer" CdmEntityContainer="TechnologicalWarehouseEntities1">
+          <EntitySetMapping Name="tblRecordProducts">
+            <EntityTypeMapping TypeName="TechnologicalWarehouseModel.tblRecordProducts">
+              <MappingFragment StoreEntitySet="tblRecordProducts">
+                <ScalarProperty Name="ProductCode" ColumnName="ProductCode" />
+                <ScalarProperty Name="NameProduct" ColumnName="NameProduct" />
+                <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+                <ScalarProperty Name="ProductBrand" ColumnName="ProductBrand" />
+                <ScalarProperty Name="ProductModel" ColumnName="ProductModel" />
+                <ScalarProperty Name="ProductSerial" ColumnName="ProductSerial" />
+                <ScalarProperty Name="ProductStatus" ColumnName="ProductStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteProduct" FunctionName="TechnologicalWarehouseModel.Store.DeleteProduct" />
+          <FunctionImportMapping FunctionImportName="InsertProduct" FunctionName="TechnologicalWarehouseModel.Store.InsertProduct" />
+          <FunctionImportMapping FunctionImportName="UpdateProduct" FunctionName="TechnologicalWarehouseModel.Store.UpdateProduct" />
+          <FunctionImportMapping FunctionImportName="ConsultUser" FunctionName="TechnologicalWarehouseModel.Store.ConsultUser" />
+          <EntitySetMapping Name="tblLogin">
+            <EntityTypeMapping TypeName="TechnologicalWarehouseModel.tblLogin">
+              <MappingFragment StoreEntitySet="tblLogin">
+                <ScalarProperty Name="PasswordUser" ColumnName="PasswordUser" />
+                <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteAll" FunctionName="TechnologicalWarehouseModel.Store.DeleteAll" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
